@@ -1,0 +1,12 @@
+L:\MemeGame\MemeGame\bin\Debug\MemeGame.exe.config
+L:\MemeGame\MemeGame\bin\Debug\MemeGame.exe
+L:\MemeGame\MemeGame\bin\Debug\MemeGame.pdb
+L:\MemeGame\MemeGame\bin\Debug\MemeGame.xml
+L:\MemeGame\MemeGame\obj\Debug\MemeGame.vbprojResolveAssemblyReference.cache
+L:\MemeGame\MemeGame\obj\Debug\MemeGame.Start.resources
+L:\MemeGame\MemeGame\obj\Debug\MemeGame.Resources.resources
+L:\MemeGame\MemeGame\obj\Debug\MemeGame.vbproj.GenerateResource.Cache
+L:\MemeGame\MemeGame\obj\Debug\MemeGame.exe
+L:\MemeGame\MemeGame\obj\Debug\MemeGame.xml
+L:\MemeGame\MemeGame\obj\Debug\MemeGame.pdb
+L:\MemeGame\MemeGame\obj\Debug\MemeGame.OnePlayer.resources
