@@ -25,12 +25,19 @@ Partial Class OnePlayer
         Me.components = New System.ComponentModel.Container()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackToMainMenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HighScoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewHighscoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveYourScoreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Ball_Timer = New System.Windows.Forms.Timer(Me.components)
         Me.Asset_Bar = New System.Windows.Forms.PictureBox()
         Me.Asset_Ball = New System.Windows.Forms.PictureBox()
         Me.Point_counter = New System.Windows.Forms.Timer(Me.components)
+        Me.lblScore = New System.Windows.Forms.Label()
+        Me.lblLives = New System.Windows.Forms.Label()
+        Me.LifeChecker = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.Asset_Bar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Asset_Ball, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -38,32 +45,59 @@ Partial Class OnePlayer
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.HighScoresToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(569, 28)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(699, 25)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'SettingsToolStripMenuItem
         '
-        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BackToMainMenuToolStripMenuItem, Me.QuitToolStripMenuItem})
+        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResumeToolStripMenuItem, Me.BackToMainMenuToolStripMenuItem, Me.QuitToolStripMenuItem})
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(74, 24)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(66, 21)
         Me.SettingsToolStripMenuItem.Text = "Settings"
+        '
+        'ResumeToolStripMenuItem
+        '
+        Me.ResumeToolStripMenuItem.Name = "ResumeToolStripMenuItem"
+        Me.ResumeToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.ResumeToolStripMenuItem.Text = "Resume"
         '
         'BackToMainMenuToolStripMenuItem
         '
         Me.BackToMainMenuToolStripMenuItem.Name = "BackToMainMenuToolStripMenuItem"
-        Me.BackToMainMenuToolStripMenuItem.Size = New System.Drawing.Size(211, 26)
+        Me.BackToMainMenuToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
         Me.BackToMainMenuToolStripMenuItem.Text = "Back to main menu"
         '
         'QuitToolStripMenuItem
         '
         Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
-        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(211, 26)
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
         Me.QuitToolStripMenuItem.Text = "Quit"
+        '
+        'HighScoresToolStripMenuItem
+        '
+        Me.HighScoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewHighscoresToolStripMenuItem, Me.SaveYourScoreToolStripMenuItem})
+        Me.HighScoresToolStripMenuItem.Name = "HighScoresToolStripMenuItem"
+        Me.HighScoresToolStripMenuItem.Size = New System.Drawing.Size(90, 21)
+        Me.HighScoresToolStripMenuItem.Text = "High Scores"
+        '
+        'ViewHighscoresToolStripMenuItem
+        '
+        Me.ViewHighscoresToolStripMenuItem.Name = "ViewHighscoresToolStripMenuItem"
+        Me.ViewHighscoresToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.ViewHighscoresToolStripMenuItem.Text = "View highscores"
+        '
+        'SaveYourScoreToolStripMenuItem
+        '
+        Me.SaveYourScoreToolStripMenuItem.Name = "SaveYourScoreToolStripMenuItem"
+        Me.SaveYourScoreToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.SaveYourScoreToolStripMenuItem.Text = "Save your score"
         '
         'Ball_Timer
         '
@@ -72,18 +106,20 @@ Partial Class OnePlayer
         'Asset_Bar
         '
         Me.Asset_Bar.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Asset_Bar.Location = New System.Drawing.Point(231, 421)
+        Me.Asset_Bar.Location = New System.Drawing.Point(297, 513)
+        Me.Asset_Bar.Margin = New System.Windows.Forms.Padding(2)
         Me.Asset_Bar.Name = "Asset_Bar"
-        Me.Asset_Bar.Size = New System.Drawing.Size(121, 30)
+        Me.Asset_Bar.Size = New System.Drawing.Size(115, 24)
         Me.Asset_Bar.TabIndex = 1
         Me.Asset_Bar.TabStop = False
         '
         'Asset_Ball
         '
         Me.Asset_Ball.Image = Global.MemeGame.My.Resources.Resources.Asset_ball
-        Me.Asset_Ball.Location = New System.Drawing.Point(219, 127)
+        Me.Asset_Ball.Location = New System.Drawing.Point(248, 195)
+        Me.Asset_Ball.Margin = New System.Windows.Forms.Padding(2)
         Me.Asset_Ball.Name = "Asset_Ball"
-        Me.Asset_Ball.Size = New System.Drawing.Size(75, 60)
+        Me.Asset_Ball.Size = New System.Drawing.Size(64, 58)
         Me.Asset_Ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.Asset_Ball.TabIndex = 2
         Me.Asset_Ball.TabStop = False
@@ -91,16 +127,44 @@ Partial Class OnePlayer
         'Point_counter
         '
         '
+        'lblScore
+        '
+        Me.lblScore.AutoSize = True
+        Me.lblScore.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblScore.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.lblScore.Location = New System.Drawing.Point(5, 30)
+        Me.lblScore.Name = "lblScore"
+        Me.lblScore.Size = New System.Drawing.Size(106, 25)
+        Me.lblScore.TabIndex = 3
+        Me.lblScore.Text = "Your Score:"
+        '
+        'lblLives
+        '
+        Me.lblLives.AutoSize = True
+        Me.lblLives.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLives.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.lblLives.Location = New System.Drawing.Point(5, 55)
+        Me.lblLives.Name = "lblLives"
+        Me.lblLives.Size = New System.Drawing.Size(100, 25)
+        Me.lblLives.TabIndex = 4
+        Me.lblLives.Text = "Your Lives:"
+        '
+        'LifeChecker
+        '
+        '
         'OnePlayer
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ClientSize = New System.Drawing.Size(569, 463)
+        Me.ClientSize = New System.Drawing.Size(699, 573)
+        Me.Controls.Add(Me.lblLives)
+        Me.Controls.Add(Me.lblScore)
         Me.Controls.Add(Me.Asset_Ball)
         Me.Controls.Add(Me.Asset_Bar)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "OnePlayer"
         Me.Text = "OnePlayer"
         Me.MenuStrip1.ResumeLayout(False)
@@ -120,4 +184,11 @@ Partial Class OnePlayer
     Friend WithEvents Asset_Bar As PictureBox
     Friend WithEvents Asset_Ball As PictureBox
     Friend WithEvents Point_counter As Timer
+    Friend WithEvents HighScoresToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewHighscoresToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveYourScoreToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents lblScore As Label
+    Friend WithEvents ResumeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents lblLives As Label
+    Friend WithEvents LifeChecker As Timer
 End Class
