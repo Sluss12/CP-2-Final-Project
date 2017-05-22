@@ -30,11 +30,11 @@ Partial Class Start
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Roboto", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label1.Location = New System.Drawing.Point(145, 107)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(171, 72)
+        Me.Label1.Size = New System.Drawing.Size(173, 69)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Pong"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -42,21 +42,23 @@ Partial Class Start
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(157, 182)
+        Me.Button1.Location = New System.Drawing.Point(104, 182)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(159, 55)
+        Me.Button1.Size = New System.Drawing.Size(245, 55)
         Me.Button1.TabIndex = 1
-        Me.Button1.Text = "One Player"
+        Me.Button1.Text = "Local Play"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(157, 243)
+        Me.Button2.Location = New System.Drawing.Point(104, 242)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(159, 66)
+        Me.Button2.Size = New System.Drawing.Size(245, 66)
         Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Play With a Friend"
+        Me.Button2.Text = "Network Multiplayer"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Start
@@ -64,10 +66,11 @@ Partial Class Start
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ClientSize = New System.Drawing.Size(471, 355)
+        Me.ClientSize = New System.Drawing.Size(471, 354)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Start"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
